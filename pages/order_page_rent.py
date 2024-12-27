@@ -9,9 +9,8 @@ class OrderPageRent(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    @allure.step('дождаться загрузки страницы данных о заказе')
-    def await_loaded(self):
-        self.find_element(OrderPageLocators.RENT_DATA_FORM_HEADER)
+    def page_locator(self):
+        return OrderPageLocators.RENT_DATA_FORM_HEADER
 
     @allure.step('выбрать дату доставки')
     def set_delivery_date(self, date):

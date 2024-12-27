@@ -30,8 +30,8 @@ class TestPagesNavigation:
 
         home_page.click_yandex()
 
-        assert len(driver.window_handles) == 2
-        driver.switch_to.window(driver.window_handles[1])
+        assert len(home_page.get_tabs_list()) == 2
+        home_page.switch_to_tab(1)
         home_page.await_url(Constants.YA_DZEN_URL)
 
     # переход по лого Самоката на разных этапах заказа
@@ -57,5 +57,5 @@ class TestPagesNavigation:
 
         new_page = MainPageScooter(driver)
         new_page.await_loaded()
-        assert len(driver.window_handles) == 1
-        assert driver.current_url == Constants.URL
+        assert len(new_page.get_tabs_list()) == 1
+        assert new_page.get_current_url() == Constants.URL

@@ -8,11 +8,16 @@ from constants import Constants
 from locators.base_page_locators import BasePageLocators
 
 
-
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
         self.url = Constants.URL
+
+    def await_loaded(self):
+        self.find_element(self.page_locator())
+
+    def page_locator(self):
+        return None
 
     @allure.step('кликнуть ссылку на яндекс')
     def click_yandex(self):
@@ -37,6 +42,10 @@ class BasePage:
     @allure.step('проскроллить страницу вниз до конца')
     def scroll_till_end(self):
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+    @allure.step('проскроллить страницу к элементу')
+    def scroll_to_element(self, element):
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     @allure.step('подождать пока появится локатор')
     def find_element(self, locator, time=10):
@@ -69,3 +78,15 @@ class BasePage:
     def select_checkbox_by_value(self, value):
         checkbox = [By.ID, value]
         self.click_locator(checkbox)
+
+    @allure.step('получить список открытых табов')
+    def get_tabs_list(self):
+        return self.driver.window_handles
+
+    @allure.step('переключиться на табу {tab_number}')
+    def switch_to_tab(self, tab_number):
+        self.driver.switch_to.window(self.get_tabs_list()[tab_number])
+
+    @allure.step('получить урл текущей табы')
+    def get_current_url(self):
+        return self.driver.current_url

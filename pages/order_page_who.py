@@ -9,9 +9,8 @@ class OrderPageWho(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    @allure.step('дождаться загрузки страницы заказа')
-    def await_loaded(self):
-        self.find_element(OrderPageLocators.PERSONAL_DATA_FORM_HEADER)
+    def page_locator(self):
+        return OrderPageLocators.PERSONAL_DATA_FORM_HEADER
 
     @allure.step('заполнить поле Имя')
     def set_name(self, name):

@@ -8,15 +8,14 @@ class MainPageScooter(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    @allure.step('подождать загрузку главной страницы')
-    def await_loaded(self):
-        self.find_element(MainPageLocators.MAIN_PAGE_HEADER)
+    def page_locator(self):
+        return MainPageLocators.MAIN_PAGE_HEADER
 
     @allure.step('кликнуть на нижнюю кнопку Заказать')
     def click_lower_order_button(self):
         button = self.find_element(MainPageLocators.LOWER_ORDER_BUTTON)
         # при дефолтном скролле закрыто с подтверждением куки
-        self.driver.execute_script("arguments[0].scrollIntoView();", button)
+        self.scroll_to_element(button)
         button.click()
 
     @allure.step('раскрыть ответ на вопрос')
