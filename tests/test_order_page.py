@@ -22,10 +22,7 @@ class TestOrderPage:
         page.go_to_site()
         page.await_loaded()
 
-        if use_top_button:
-            page.click_order_button()
-        else:
-            page.click_lower_order_button()
+        page.make_order(use_top_button)
 
         page = OrderPageWho(driver)
         page.await_loaded()

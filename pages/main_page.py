@@ -24,3 +24,10 @@ class MainPageScooter(BasePage):
         self.click_locator(question_locator)
         self.find_element(answer_locator)
         return self.get_element_text(answer_locator)
+
+    @allure.step('нажать кнопку Заказать')
+    def make_order(self, use_top_button):
+        if use_top_button:
+            self.click_order_button()
+        else:
+            self.click_lower_order_button()
