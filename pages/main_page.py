@@ -4,6 +4,8 @@ from pages.base_page import BasePage
 
 
 class MainPageScooter(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver)
 
     # подождать загрузку главной страницы
     def await_loaded(self):

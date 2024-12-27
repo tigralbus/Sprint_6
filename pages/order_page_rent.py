@@ -5,6 +5,8 @@ from pages.base_page import BasePage
 
 
 class OrderPageRent(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver)
 
     def await_loaded(self):
         self.find_element(OrderPageLocators.RENT_DATA_FORM_HEADER)
