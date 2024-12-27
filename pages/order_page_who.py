@@ -1,5 +1,4 @@
 import allure
-from selenium.webdriver.common.by import By
 
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
@@ -27,8 +26,7 @@ class OrderPageWho(BasePage):
     @allure.step('выбрать станцию метро')
     def set_metro(self, metro_name):
         self.click_locator(OrderPageLocators.METRO_STATION_FIELD)
-        self.click_locator(
-            [By.XPATH, f"//div[@class='select-search__select']//button/div[contains(text(), '{metro_name}')]"])
+        self.click_locator(OrderPageLocators.metro_station_locator(metro_name))
 
     @allure.step('заполнить после Телефон')
     def set_phone(self, phone):

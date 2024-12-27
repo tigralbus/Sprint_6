@@ -1,5 +1,4 @@
 import allure
-from selenium.webdriver.common.by import By
 
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
@@ -20,7 +19,7 @@ class OrderPageRent(BasePage):
     @allure.step('выбрать срок аренды')
     def set_rent_term(self, term):
         self.click_locator(OrderPageLocators.RENT_TERM_FIELD)
-        self.click_locator([By.XPATH, f"//div[@class='Dropdown-menu']//div[contains(text(), '{term}')]"])
+        self.click_locator(OrderPageLocators.rent_term_locator(term))
 
     @allure.step('выбрать цвет самоката')
     def set_color(self, scooter_color):
