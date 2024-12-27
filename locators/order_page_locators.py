@@ -2,8 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class OrderPageLocators:
-    STATUS_BUTTON = [By.CLASS_NAME, 'Header_Link__1TAG7']
-    LOWER_ORDER_BUTTON = [By.XPATH, "//div[@class='Home_FinishButton__1_cWm']/button[text() = 'Заказать']"]
+
     PERSONAL_DATA_FORM_HEADER = [By.XPATH, ".//div[@class = 'Order_Header__BZXOb'][text() = 'Для кого самокат']"]
     NEXT_BUTTON = [By.CLASS_NAME, 'Button_Middle__1CSJM']
 

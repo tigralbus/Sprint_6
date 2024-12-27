@@ -5,8 +5,8 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from constants import Constants
-from locators.general_locators import GeneralLocators
-from locators.order_page_locators import OrderPageLocators
+from locators.base_page_locators import BasePageLocators
+
 
 
 class BasePage:
@@ -16,19 +16,15 @@ class BasePage:
 
     @allure.step('кликнуть ссылку на яндекс')
     def click_yandex(self):
-        self.click_locator(GeneralLocators.YANDEX_LINK)
+        self.click_locator(BasePageLocators.YANDEX_LINK)
 
     @allure.step('кликнуть ссылку на самокат')
     def click_scooter(self):
-        self.click_locator(GeneralLocators.SCOOTER_LINK)
+        self.click_locator(BasePageLocators.SCOOTER_LINK)
 
     @allure.step('кликнуть на верхнюю кнопку Заказать')
     def click_order_button(self):
-        self.click_locator(GeneralLocators.UPPER_ORDER_BUTTON)
-
-    @allure.step('кликнуть на верхнюю кнопку Статус')
-    def click_status_button(self):
-        self.click_locator(OrderPageLocators.STATUS_BUTTON)
+        self.click_locator(BasePageLocators.UPPER_ORDER_BUTTON)
 
     @allure.step('перейти на стартовую страницу')
     def go_to_site(self):

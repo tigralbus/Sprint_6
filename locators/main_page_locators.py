@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 
 class MainPageLocators:
     MAIN_PAGE_HEADER = [By.CLASS_NAME, 'Home_Header__iJKdX']
+    LOWER_ORDER_BUTTON = [By.XPATH, "//div[@class='Home_FinishButton__1_cWm']/button[text() = 'Заказать']"]
 
     COST_QUESTION = [By.ID, 'accordion__heading-0']
     SEVERAL_SCOOTERS_QUESTION = [By.ID, 'accordion__heading-1']
